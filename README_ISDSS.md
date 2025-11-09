@@ -104,7 +104,7 @@ risk = RecencyWeight × riskDays + (1 - RecencyWeight) × riskCompliance
 ---
 
 ## 👨‍💻 Автор
-**Имя и Фамилия**  
+**Комаров А. Г.**  
 [https://github.com/Katarsisam/ISDSS.git](https://github.com/Katarsisam/ISDSS.git)
 
 ---
