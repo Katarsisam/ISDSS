@@ -1,0 +1,15 @@
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/bin/Release/net9.0/ISDSS.Application.deps.json
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/bin/Release/net9.0/ISDSS.Application.dll
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/bin/Release/net9.0/ISDSS.Application.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/bin/Release/net9.0/ISDSS.Domain.dll
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/bin/Release/net9.0/ISDSS.Domain.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.csproj.AssemblyReference.cache
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.AssemblyInfoInputs.cache
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.AssemblyInfo.cs
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.csproj.CoreCompileInputs.cache
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Ap.FB98584E.Up2Date
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.dll
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/refint/ISDSS.Application.dll
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ISDSS.Application.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/Release/net9.0/ref/ISDSS.Application.dll

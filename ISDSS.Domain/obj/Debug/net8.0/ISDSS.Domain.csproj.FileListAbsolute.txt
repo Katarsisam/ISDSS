@@ -1,0 +1,11 @@
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/bin/Debug/net8.0/ISDSS.Domain.deps.json
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/bin/Debug/net8.0/ISDSS.Domain.dll
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/bin/Debug/net8.0/ISDSS.Domain.pdb
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.AssemblyInfoInputs.cache
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.AssemblyInfo.cs
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.csproj.CoreCompileInputs.cache
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.dll
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/refint/ISDSS.Domain.dll
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ISDSS.Domain.pdb
+/home/kage/sem3/ISDSS_test/ISDSS/ISDSS.Domain/obj/Debug/net8.0/ref/ISDSS.Domain.dll

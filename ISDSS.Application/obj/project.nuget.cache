@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "hva5ySO2rKw=",
+  "success": true,
+  "projectFilePath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/kage/.nuget/packages/microsoft.net.illink.tasks/9.0.11/microsoft.net.illink.tasks.9.0.11.nupkg.sha512",
+    "/home/kage/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/9.0.11/microsoft.netcore.app.runtime.linux-x64.9.0.11.nupkg.sha512",
+    "/home/kage/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/9.0.11/microsoft.aspnetcore.app.runtime.linux-x64.9.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

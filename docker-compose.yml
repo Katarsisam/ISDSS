@@ -1,0 +1,29 @@
+#version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: isdss
+      MYSQL_ROOT_PASSWORD: 2570
+    ports:
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db-data:/var/lib/mysql
+
+  ui:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DISPLAY=${DISPLAY}
+      - AVALONIA_USE_X11=1
+      # если используешь localhost для БД
+      - ConnectionStrings__Default=Server=127.0.0.1;Port=3307;Database=isdss;User Id=root;Password=2570;TreatTinyAsBoolean=true;
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host
+
+volumes:
+  db-data:

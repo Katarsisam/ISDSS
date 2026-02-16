@@ -1,0 +1,379 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvt="clr-namespace:ISDSS.Presentation.UI.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="ISDSS.Presentation.UI.MainWindow"
+    Width="1040"
+    Height="600"
+    Title="ИС ППР администратора курса по ИБ">
+
+    <Window.Resources>
+        <cvt:RiskToBrushConverter x:Key="RiskBrush" />
+    </Window.Resources>
+
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- Верхняя панель -->
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="ФИО:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="1"
+                     Text="{Binding NewStudentName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     IsEnabled="{Binding CanEditStudents}"/>
+
+            <TextBlock Grid.Column="3" Text="Email:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="4"
+                     Text="{Binding NewStudentEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     IsEnabled="{Binding CanEditStudents}"/>
+
+            <Button Grid.Column="6" Width="160" Content="Добавить" Command="{Binding AddStudentCommand}"/>
+
+            <TextBlock Grid.Column="8" Text="Поиск:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="9"
+                     Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Grid.Column="11" Width="120" Content="Демо-данные" Command="{Binding SeedDemoCommand}" IsEnabled="{Binding CanSeedDemo}"/>
+            <Button Grid.Column="13" Width="90" Content="Сброс" Command="{Binding ClearFilterCommand}"/>
+
+            <TextBlock Grid.Column="15" Text="Логин:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="16" Width="140"
+                     Text="{Binding LoginName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Grid.Column="18" Text="Пароль:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Grid.Column="19" Width="140" PasswordChar="•"
+                     Text="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Grid.Column="21" Width="90" Content="{Binding LoginButtonText}" Command="{Binding LoginCommand}"/>
+            <TextBlock Grid.Column="22" Text="Аккаунт:" VerticalAlignment="Center" Margin="16,0,6,0"/>
+            <TextBlock Grid.Column="23" Text="{Binding CurrentUserDisplay}" VerticalAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+
+
+        <!-- ПЕРЕПИСАННЫЙ AVALONIA DataGrid -->
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding StudentsView}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="{Binding IsStudentGridReadOnly}"
+                  SelectedItem="{Binding SelectedRow, Mode=TwoWay}">
+
+            <!-- НОВЫЙ способ стилизации строк -->
+            <DataGrid.Styles>
+                <Style Selector="DataGridRow">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <MultiBinding Converter="{StaticResource RiskBrush}">
+                                <Binding Path="Risk"/>
+                                <Binding Path="DataContext.HighRiskThreshold"
+                                         RelativeSource="{RelativeSource AncestorType=Window}"/>
+                            </MultiBinding>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.Styles>
+
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Header="ID" Width="60"
+                                        IsVisible="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Id}" HorizontalAlignment="Center"
+                                       IsVisible="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName, Mode=TwoWay}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email, Mode=TwoWay}" Width="*"/>
+                <DataGridTemplateColumn Header="Соответствие, %" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding CompliancePercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     IsEnabled="{Binding DataContext.CanEditCompliance, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Дата обучения" Width="180">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastTrainingDate, StringFormat='yyyy-MM-dd'}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding LastTrainingDateOffset}"
+                                        IsEnabled="{Binding DataContext.CanEditCompliance, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Риск" Width="110">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Risk}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить выбранного" Command="{Binding DeleteSelectedCommand}"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+        </DataGrid>
+
+
+        <TabControl Grid.Row="2" Margin="0,12,0,0">
+            <TabItem Header="Курсы">
+                <Grid Margin="0,8,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding Courses}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="{Binding IsCourseEditorLocked}"
+                                  SelectedItem="{Binding SelectedCourse}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True" Width="70"
+                                                     IsVisible="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                <DataGridTextColumn Header="Название" Binding="{Binding Title, Mode=TwoWay}" Width="*"/>
+                                <DataGridCheckBoxColumn Header="Обязательный" Binding="{Binding IsMandatory, Mode=TwoWay}" Width="130"/>
+                                <DataGridTextColumn Header="Сложность" Binding="{Binding Difficulty, Mode=TwoWay}" Width="110"/>
+                                <DataGridTemplateColumn Header="Ответственный" Width="220">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding AssignedUserName}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding DataContext.Users, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                  SelectedItem="{Binding AssignedUserRow, Mode=TwoWay}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding DisplayName}"/>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Border Background="#AAFFFFFF"
+                                IsHitTestVisible="{Binding IsCourseEditorLocked}"
+                                IsVisible="{Binding IsCourseEditorLocked}"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch">
+                            <TextBlock Text="Для редактирования курсов войдите как администратор или преподаватель."
+                                       Foreground="Gray"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Margin="32"/>
+                        </Border>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,8,0,0">
+                        <Button Content="Добавить курс" Command="{Binding AddCourseCommand}" IsEnabled="{Binding CanEditCourses}"/>
+                        <Button Content="Удалить курс" Command="{Binding DeleteCourseCommand}" IsEnabled="{Binding CanEditCourses}"/>
+                        <Button Content="Сохранить" Command="{Binding SaveCoursesCommand}" IsEnabled="{Binding CanEditCourses}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Оценки">
+                <Grid Margin="0,8,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,8">
+                        <TextBlock Text="Студент:" VerticalAlignment="Center"/>
+                        <ComboBox Width="200"
+                                  ItemsSource="{Binding Students}"
+                                  SelectedItem="{Binding AssessmentStudent}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FullName}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBlock Text="Курс:" VerticalAlignment="Center"/>
+                        <ComboBox Width="200"
+                                  ItemsSource="{Binding Courses}"
+                                  SelectedItem="{Binding AssessmentCourse}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBlock Text="Оценка:" VerticalAlignment="Center"/>
+                        <TextBox Width="80" Text="{Binding NewAssessmentScore, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <CheckBox Content="Зачёт" IsChecked="{Binding NewAssessmentPassed, Mode=TwoWay}" VerticalAlignment="Center"/>
+
+                        <TextBlock Text="Дата:" VerticalAlignment="Center"/>
+                        <DatePicker SelectedDate="{Binding NewAssessmentDate}" Width="140"/>
+
+                        <Button Content="Добавить" Command="{Binding AddAssessmentCommand}" Margin="8,0,0,0"/>
+                    </StackPanel>
+
+                    <DataGrid Grid.Row="1"
+                              ItemsSource="{Binding Assessments}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              SelectedItem="{Binding SelectedAssessment}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Студент" Binding="{Binding StudentName}" Width="*"/>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding CourseTitle}" Width="*"/>
+                            <DataGridTextColumn Header="Оценка" Binding="{Binding Score}" Width="100"/>
+                            <DataGridCheckBoxColumn Header="Зачёт" Binding="{Binding Passed}" Width="80"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding IssuedAt, StringFormat=yyyy-MM-dd}" Width="140"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,8,0,0">
+                        <Button Content="Удалить оценку" Command="{Binding DeleteAssessmentCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Доступ">
+                <Grid Margin="0,8,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid ItemsSource="{Binding Users}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="80"
+                                                IsVisible="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
+                            <DataGridTextColumn Header="Роль" Binding="{Binding RoleTitle}" Width="*"/>
+                            <DataGridTextColumn Header="Доступ" Binding="{Binding AccessLevelLabel}" Width="160"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Row="1" Orientation="Vertical" Spacing="4" Margin="0,8,0,0">
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="8"
+                                    IsEnabled="{Binding CanManageUsers}">
+                            <TextBlock Text="Логин:" VerticalAlignment="Center"/>
+                            <TextBox Width="150" Text="{Binding NewUserLogin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="Пароль:" VerticalAlignment="Center"/>
+                            <TextBox Width="150" PasswordChar="•" Text="{Binding NewUserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="Роль:" VerticalAlignment="Center"/>
+                            <TextBox Width="150" Text="{Binding NewUserRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="Доступ:" VerticalAlignment="Center"/>
+                            <ComboBox Width="150"
+                                      ItemsSource="{Binding AccessLevelOptions}"
+                                      SelectedItem="{Binding SelectedAccessLevelOption, Mode=TwoWay}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Label}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button Content="Зарегистрировать" Command="{Binding RegisterUserCommand}"/>
+                        </StackPanel>
+                        <TextBlock Text="Вы вошли как администратор, регистрация пользователей доступна."
+                                   Foreground="Green"
+                                   IsVisible="{Binding CanManageUsers}"/>
+                        <TextBlock Text="Для регистрации новых сотрудников войдите под учётной записью администратора."
+                                   Foreground="Gray"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Grid Grid.Row="3" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Spacing="16">
+
+                <TextBlock>
+                    Всего:
+                    <Run Text="{Binding TotalCount}"/>
+                </TextBlock>
+
+                <TextBlock>
+                    Среднее соответствие:
+                    <Run Text="{Binding AvgCompliance, StringFormat={}{0:N1}}"/>%
+                </TextBlock>
+
+                <TextBlock>
+                    <Run Text="Высокий риск (≥ "/>
+                    <Run Text="{Binding HighRiskThreshold}"/>
+                    <Run Text="): "/>
+                    <Run Text="{Binding HighRiskCount}"/>
+                </TextBlock>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+                <Button Content="Экспорт (зашифр.)" Command="{Binding ExportCommand}"/>
+                <Button Content="Импорт (зашифр.)" Command="{Binding ImportCommand}"/>
+                <Button Content="Экспорт CSV (отчёт)" Command="{Binding ExportCsvCommand}"/>
+                <Button Content="Сохранить" Command="{Binding SaveChangesCommand}"/>
+                <Button Content="Обновить" Command="{Binding RefreshCommand}"/>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>

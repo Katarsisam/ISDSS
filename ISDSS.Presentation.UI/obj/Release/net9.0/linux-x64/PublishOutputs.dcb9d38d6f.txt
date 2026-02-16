@@ -1,0 +1,5 @@
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/bin/Release/net9.0/linux-x64/publish/ISDSS.Presentation.UI.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/bin/Release/net9.0/linux-x64/publish/ISDSS.Domain.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/bin/Release/net9.0/linux-x64/publish/ISDSS.Application.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/bin/Release/net9.0/linux-x64/publish/ISDSS.Infrastructure.pdb
+/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/bin/Release/net9.0/linux-x64/publish/ISDSS.Presentation.UI

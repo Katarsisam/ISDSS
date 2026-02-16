@@ -1,0 +1,415 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/ISDSS.Presentation.UI.csproj": {}
+  },
+  "projects": {
+    "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj",
+        "projectName": "ISDSS.Application",
+        "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj",
+        "packagesPath": "/home/kage/.nuget/packages/",
+        "outputPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kage/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj",
+        "projectName": "ISDSS.Domain",
+        "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj",
+        "packagesPath": "/home/kage/.nuget/packages/",
+        "outputPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kage/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/ISDSS.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/ISDSS.Infrastructure.csproj",
+        "projectName": "ISDSS.Infrastructure",
+        "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/ISDSS.Infrastructure.csproj",
+        "packagesPath": "/home/kage/.nuget/packages/",
+        "outputPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kage/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj"
+              },
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "autoReferenced": true
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Security.Cryptography.ProtectedData": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/ISDSS.Presentation.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/ISDSS.Presentation.UI.csproj",
+        "projectName": "ISDSS.Presentation.UI",
+        "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/ISDSS.Presentation.UI.csproj",
+        "packagesPath": "/home/kage/.nuget/packages/",
+        "outputPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Presentation.UI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kage/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Application/ISDSS.Application.csproj"
+              },
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Domain/ISDSS.Domain.csproj"
+              },
+              "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/ISDSS.Infrastructure.csproj": {
+                "projectPath": "/home/kage/sem3/ISDSS_test2/ISDSS/ISDSS/ISDSS.Infrastructure/ISDSS.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Avalonia.Diagnostics": {
+              "include": "None",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Avalonia.Fonts.Inter": {
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Avalonia.Themes.Fluent": {
+              "target": "Package",
+              "version": "[11.3.9, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

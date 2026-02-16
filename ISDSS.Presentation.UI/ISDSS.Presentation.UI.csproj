@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <UseAppHost>true</UseAppHost>
+    <PublishAot>false</PublishAot>
+
+
+    <RootNamespace>ISDSS.Presentation.UI</RootNamespace>
+    <AssemblyName>ISDSS.Presentation.UI</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.9" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.9" />
+
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ISDSS.Domain\ISDSS.Domain.csproj" />
+    <ProjectReference Include="..\ISDSS.Application\ISDSS.Application.csproj" />
+    <ProjectReference Include="..\ISDSS.Infrastructure\ISDSS.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
